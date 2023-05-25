@@ -28,4 +28,4 @@ spring:
         - id: smartphone-service
           uri: lb://smartphone-service
           predicates: 
-            - Path=/smartphone/**
+            - Path=/smartphone/**           
