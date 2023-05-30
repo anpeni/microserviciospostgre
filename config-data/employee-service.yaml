@@ -11,7 +11,7 @@ eureka:
       
 spring:
   application:
-    name: user-service
+    name: employee-service
   sleuth:
     otel:
       config:
