@@ -10,6 +10,15 @@ eureka:
       hostname: localhost
       
 spring:
+  application:
+    name: user-service
+  sleuth:
+    otel:
+      config:
+        trace-id-ratio-based: 1.0
+      exporter:
+        otlp:
+          endpoint: http://localhost:4317
   datasource:
     url: jdbc:postgresql://localhost:5432/microserviciosdb
     username: postgres
