@@ -26,4 +26,4 @@ spring:
         trace-id-ratio-based: 1.0
       exporter:
         otlp:
-          endpoint: http://localhost:4317
+          endpoint: http://otlp-exporter:4317
