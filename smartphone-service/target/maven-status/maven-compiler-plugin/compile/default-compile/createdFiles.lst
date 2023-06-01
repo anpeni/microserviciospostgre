@@ -1,0 +1,5 @@
+com\micro\smartphoneservice\controller\SmartphoneController.class
+com\micro\smartphoneservice\service\SmartphoneService.class
+com\micro\smartphoneservice\repository\SmartphoneRepository.class
+com\micro\smartphoneservice\SmartphoneServiceApplication.class
+com\micro\smartphoneservice\entity\Smartphone.class
