@@ -38,7 +38,7 @@ spring:
           '[/**]':
             allowedOrigins: "*"
             allowedMethods: "*"
-            allowedHeaders: "*"
+            allowedHeaders: "*"a
 
 
 
