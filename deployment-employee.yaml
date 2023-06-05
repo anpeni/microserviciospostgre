@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employee-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: employee-service
+  template:
+    metadata:
+      labels:
+        app: employee-service
+    spec:
+      containers:
+        - name: cursos
+          image: aguzf/cursos:latest/////
+          ports:
+            - containerPort: 8001
+          env:
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: employee-service
+                  key: port
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: employee-service
+                  key: db_host
+            - name: DB_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: employee-service
+                  key: database
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: employee-service
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: laptop-service
+                  key: password
+            - name: LAPTOP_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: employee-service
+                  key: laptop_url
+            - name: SMARTPHONE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: employee-service
+                  key: smartphone_url

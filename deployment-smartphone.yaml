@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smartphone-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: smartphone-service
+  template:
+    metadata:
+      labels:
+        app: smartphone-service
+    spec:
+      containers:
+        - name: smartphone
+          image: /////
+          ports:
+            - containerPort: 8003
+          env:
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: smartphone-service
+                  key: port
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: smartphone-service
+                  key: db_host
+            - name: DB_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: smartphone-service
+                  key: database
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: smartphone-service
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: smartphone-service
+                  key: password
+            - name: EMPLOYEE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: smartphone-service
+                  key: employee_url
+            - name: LAPTOP_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: smartphone-service
+                  key: laptop-service

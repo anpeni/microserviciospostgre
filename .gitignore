@@ -1,0 +1,5 @@
+/config-data
+/config-service
+/eureka-service
+/gateway-estatico-service
+zipkin-server-2.24.1-exec.jar

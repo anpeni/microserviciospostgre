@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: employee-service
+data:
+  port: "8001"
+  db_host: "postgres14:5432"
+  database: microserviciosdb
+#  username: root
+#  password: sasa
+  laptop_url: "laptop-service:8002"
+  smartphone_url: "smartphone-service:8003"
+  application.yaml: |-
+    config:
+      texto: Configurando ambiente por defecto
+    ---
+    spring:
+      config:
+        activate:
+          on-profile: dev
+    config:
+      texto: Configurando ambiente de desarrollo
+    ---
+    spring:
+      config:
+        activate:
+          on-profile: prod
+    config:
+      texto: Configurando ambiente de produccion
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: laptop-service
+data:
+  port: "8002"
+  db_host: "postgres14:5432"
+  database: microserviciosdb
+#  username: postgres
+#  password: sasa
+  employee_url: "employee-service:8001"
+  smartphone_url: "smartphone-service:8003"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: smartphone-service
+data:
+  port: "8003"
+  db_host: "postgres14:5432"
+  database: microserviciosdb
+#  username: postgres
+#  password: sasa
+  employee_url: "employee-service:8001"
+  smartphone_url: "laptop-service:8002"

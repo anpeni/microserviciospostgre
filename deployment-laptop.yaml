@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: laptop-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: laptop-service
+  template:
+    metadata:
+      labels:
+        app: laptop-service
+    spec:
+      containers:
+        - name: laptop
+          image: /////
+          ports:
+            - containerPort: 8002
+          env:
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: laptop-service
+                  key: port
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: laptop-service
+                  key: db_host
+            - name: DB_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: laptop-service
+                  key: database
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: laptop-service
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: laptop-service
+                  key: password
+            - name: EMPLOYEE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: laptop-service
+                  key: employee_url
+            - name: SMARTPHONE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: laptop-service
+                  key: smartphone_url

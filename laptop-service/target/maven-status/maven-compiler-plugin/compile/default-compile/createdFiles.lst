@@ -1,0 +1,5 @@
+com\micro\laptopservice\controller\LaptopController.class
+com\micro\laptopservice\repository\LaptopRepository.class
+com\micro\laptopservice\service\LaptopService.class
+com\micro\laptopservice\LaptopServiceApplication.class
+com\micro\laptopservice\entity\Laptop.class
