@@ -13,7 +13,7 @@ spec:
         app: employee-service
     spec:
       containers:
-        - name: cursos
+        - name: employee
           image: aguzf/cursos:latest/////
           ports:
             - containerPort: 8001
